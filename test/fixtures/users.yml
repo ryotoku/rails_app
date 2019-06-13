@@ -1,3 +1,7 @@
 Hustler:
   name: Hustler
   password_digest: <%= User.digest('password') %>
+
+Pooler:
+  name: Poolman
+  password_digest: <%= User.digest('password') %>
