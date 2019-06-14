@@ -8,7 +8,8 @@
 
 User.create!(name:  "Example User",
              password:              "foobar",
-             password_confirmation: "foobar")
+             password_confirmation: "foobar",
+             admin: true)
 
 50.times do |n|
   name  = Faker::Name.name
