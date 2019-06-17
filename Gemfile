@@ -30,6 +30,9 @@ gem 'mini_magick',             '4.7.0'
 gem 'kaminari'
 gem 'kaminari-bootstrap'
 gem 'bootstrap-sass',          '3.3.7'
+# google API
+gem 'google-api-client', '<0.9'
+gem 'trollop', '~> 2.1'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
