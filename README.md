@@ -1,24 +1,15 @@
 # README
+ビリヤード動画まとめサイトポートフォリオ。
+下記に実装済み機能、未実装機能を記す
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 開発環境
+-Ruby 2.4.6
+-rails 5.2.3
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 機能
+-ユーザのCURD機能(新規作成、編集、削除、一覧)
+-外部APIによる動画情報取得(未実装)
+-動画コメントのCURD機能(新規作成、編集、削除)(未実装)
+-ログイン・ログアウト
+-ログイン状況に応じた表示切替
+-テスト機能(一部実装)
