@@ -7,3 +7,12 @@
 
   <%= link_to "Create Account", signup_path, class: "btn btn-black" %>
 </div>
+
+<ul class="videos">
+  <%= @videos.each do |video| %>
+    <li>
+      <%= link_to video.title, video %>
+    </li>
+  <% end %>
+</ul>
+<%#= paginate @videos %>
