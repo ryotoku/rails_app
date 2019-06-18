@@ -9,10 +9,11 @@ class StaticPagesController < ApplicationController
   YOUTUBE_API_VERSION = 'v3'
 
   def home
-      @video = Video.new
-      get_data
+    Video.delete_all
+    @video = Video.new
+    get_data
 #      @video = Video.page(params[:page])
-      @videos = Video.all
+    @videos = Video.all
 end
 
   def recommend
@@ -36,7 +37,7 @@ end
   def get_data
     require 'video.rb'
       opts = Trollop::options do
-      opt :p, 'Search term', :type => String, :default => "ビリヤード"
+      opt :q, 'Search term', :type => String, :default => "ビリヤード"
       opt :max_results, 'Max results', :type => :int, :default => 5
       opt :order, 'order', :type => String, :default => 'date'
       opt :regionCode, 'region', :type => String, :default => 'JP'
@@ -50,7 +51,7 @@ end
         :api_method => youtube.search.list,
         :parameters => {
           :part => 'snippet',
-          :p => opts[:p],
+          :q => opts[:q],
           :maxResults => opts[:max_results],
           :order => opts[:order],
           :regionCode => opts[:regionCode]
@@ -58,11 +59,12 @@ end
       )
       videos = search_response.data.items#Jsonの中身が多かったので必要な情報のみ受けれるようにしています。
 
-      videos.length.times { |result|
-        Video.create(title: videos[result]["snippet"]["title"],
-                      url: videos[result]["snippet"]["thumbnails"]["default"]["url"])
+      for video_index in 0..videos.length - 1 do
+        Video.create( id: video_index,
+                      title: videos[video_index]["snippet"]["title"],
+                      url: videos[video_index]["snippet"]["thumbnails"]["default"]["url"])
         @video.save
-      }
+      end
     end
   end
 
