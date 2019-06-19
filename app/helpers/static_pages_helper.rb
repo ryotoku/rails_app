@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'google/api_client'
-require 'trollop'
+require 'optimist'
 
 module StaticPagesHelper
 
@@ -22,7 +22,7 @@ module StaticPagesHelper
 
   def get_data
     require 'video.rb'
-      opts = Trollop::options do
+      opts = Optimist::options do
       opt :q, 'Search term', :type => String, :default => "ビリヤード"
       opt :max_results, 'Max results', :type => :int, :default => 5
       opt :order, 'order', :type => String, :default => 'date'
