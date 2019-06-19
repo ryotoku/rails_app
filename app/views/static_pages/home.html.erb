@@ -12,6 +12,7 @@
   <div class="col-md-6 col-md-offset-3">
     <%= @videos.each do |video| %>
       <li>
+        <%= image_tag(video.url) %>
         <%= link_to video.title, video.url %>
       </li>
     <% end %>

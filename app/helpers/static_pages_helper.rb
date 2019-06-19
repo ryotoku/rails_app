@@ -5,15 +5,15 @@ require 'trollop'
 module StaticPagesHelper
 
   DEVELOPER_KEY = Settings.api_key
-  YOUTUBE_API_SERVICE_NAME = 'youtube'
-  YOUTUBE_API_VERSION = 'v3'
+  YOUTUBE_API_SERVICE_NAME = Settings.api_name
+  YOUTUBE_API_VERSION = Settings.api_ver
 
   def get_service
     client = Google::APIClient.new(
-      :key => DEVELOPER_KEY,
-      :authorization => nil,
-      :application_name => $PROGRAM_NAME,
-      :application_version => '1.0.0'
+      key: DEVELOPER_KEY,
+      authorization: nil,
+      application_name: $PROGRAM_NAME,
+      application_version: Settings.app_ver
     )
     youtube = client.discovered_api(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION)
 
@@ -46,16 +46,13 @@ module StaticPagesHelper
       videos = search_response.data.items#Jsonの中身が多かったので必要な情報のみ受けれるようにしています。
 
       for video_index in 0..videos.length - 1 do
-#        if Video.blank?
-          Video.create( id: video_index,
+          Video.create!(id: video_index,
                         title: videos[video_index]["snippet"]["title"],
                         url: videos[video_index]["snippet"]["thumbnails"]["default"]["url"])
-#        else
-#          Video.create( title: videos[video_index]["snippet"]["title"],
-#                        url: videos[video_index]["snippet"]["thumbnails"]["default"]["url"])
-#        end
-        @video.save
       end
+
+    rescue Google::APIClient::TransmissionError => e
+      puts e.result.body
     end
   end
 

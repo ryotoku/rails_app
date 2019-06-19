@@ -4,7 +4,7 @@ class StaticPagesController < ApplicationController
     Video.delete_all
     @video = Video.new
     get_data
-#      @video = Video.page(params[:page])
+#    @video = Video.page(params[:page])
     @videos = Video.all
   end
 

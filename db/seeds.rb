@@ -18,3 +18,8 @@ User.create!(name:  "Pooladmin",
                password:              password,
                password_confirmation: password)
 end
+
+# Video test
+Video.create!(title:  "TitleName",
+              url:    "https://www.youtube.com/?gl=JP&hl=ja")
+
