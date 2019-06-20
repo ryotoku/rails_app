@@ -21,9 +21,8 @@ module StaticPagesHelper
   end
 
   def get_data
-    require 'video.rb'
-      opts = Optimist::options do
-      opt :p, 'Search term', :type => String, :default => "ビリヤード"
+    opts = Optimist::options do
+      opt :q, 'Search term', :type => String, :default => "ビリヤード"
       opt :max_results, 'Max results', :type => :int, :default => 5
       opt :order, 'order', :type => String, :default => 'date'
       opt :regionCode, 'region', :type => String, :default => 'JP'
@@ -37,7 +36,7 @@ module StaticPagesHelper
         :api_method => youtube.search.list,
         :parameters => {
           :part => 'snippet',
-          :p => opts[:p],
+          :q => opts[:q],
           :maxResults => opts[:max_results],
           :order => opts[:order],
           :regionCode => opts[:regionCode]
@@ -50,9 +49,8 @@ module StaticPagesHelper
                         title: videos[video_index]["snippet"]["title"],
                         url: videos[video_index]["snippet"]["thumbnails"]["default"]["url"])
       end
-
-    rescue Google::APIClient::TransmissionError => error
-      puts error.result.body
+    rescue Google::APIClient::TransmissionError => e
+      puts e.result.body
     end
   end
 
