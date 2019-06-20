@@ -1,7 +1,7 @@
 class StaticPagesController < ApplicationController
   include StaticPagesHelper
   def home
-    Video.delete_all
+#    Video.delete_all
     @video = Video.new
     get_data
 #    @video = Video.page(params[:page])
