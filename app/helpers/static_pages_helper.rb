@@ -36,7 +36,7 @@ module StaticPagesHelper
         :api_method => youtube.search.list,
         :parameters => {
           :part => 'snippet',
-          :q => opts[:q],
+          :p => opts[:q],
           :maxResults => opts[:max_results],
           :order => opts[:order],
           :regionCode => opts[:regionCode]
