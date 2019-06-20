@@ -22,7 +22,7 @@ module StaticPagesHelper
 
   def get_data
     opts = Optimist::options do
-      opt :q, 'Search term', :type => String, :default => "ビリヤード"
+      opt :p, 'Search term', :type => String, :default => "ビリヤード"
       opt :max_results, 'Max results', :type => :int, :default => 5
       opt :order, 'order', :type => String, :default => 'date'
       opt :regionCode, 'region', :type => String, :default => 'JP'
@@ -36,7 +36,7 @@ module StaticPagesHelper
         :api_method => youtube.search.list,
         :parameters => {
           :part => 'snippet',
-          :p => opts[:q],
+          :q => opts[:p],
           :maxResults => opts[:max_results],
           :order => opts[:order],
           :regionCode => opts[:regionCode]
