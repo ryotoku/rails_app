@@ -21,6 +21,7 @@ module StaticPagesHelper
   end
 
   def get_data
+    ARGV.clear
     opts = Optimist::options do
       opt :Srch, 'Search term', :type => String, :default => "ビリヤード"
       opt :max_results, 'Max results', :type => :int, :default => 5
