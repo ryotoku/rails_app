@@ -21,7 +21,8 @@ module StaticPagesHelper
   end
 
   def get_data
-    ARGV.clear
+    arg_array_save = []
+    arg_array_save = ARGV.shift(4)
     opts = Optimist::options do
       opt :Srch, 'Search term', :type => String, :default => "ビリヤード"
       opt :max_results, 'Max results', :type => :int, :default => 5
@@ -29,6 +30,11 @@ module StaticPagesHelper
       opt :regionCode, 'region', :type => String, :default => 'JP'
     end
 
+    for array_index in 0..arg_array_save.length - 1 do
+      ARGV.push(arg_array_save[array_index])
+    end
+
+    byebug
     client, youtube = get_service
 
     begin
