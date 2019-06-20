@@ -34,7 +34,6 @@ module StaticPagesHelper
       ARGV.push(arg_array_save[array_index])
     end
 
-    byebug
     client, youtube = get_service
 
     begin
