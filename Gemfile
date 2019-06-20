@@ -34,7 +34,7 @@ gem 'bootstrap-sass',          '3.3.7'
 gem 'google-api-client', '<0.9'
 gem 'config'
 #gem 'trollop'
-gem 'optimist'
+gem 'optimist',                '~> 3.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -51,8 +51,8 @@ module StaticPagesHelper
                         url: videos[video_index]["snippet"]["thumbnails"]["default"]["url"])
       end
 
-    rescue Google::APIClient::TransmissionError => e
-      puts e.result.body
+    rescue Google::APIClient::TransmissionError => error
+      puts error.result.body
     end
   end
 
