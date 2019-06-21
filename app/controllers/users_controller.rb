@@ -8,7 +8,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    if params[:search].present?
+      @user = User.find_by(name: params[:search])
+    else
+      @user = User.find(params[:id])
+    end
   end
 
   def new
