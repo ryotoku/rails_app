@@ -10,6 +10,10 @@ class UsersController < ApplicationController
   def show
     if params[:search].present?
       @user = User.find_by(name: params[:search])
+      if @user.blank?
+        flash[:danger] = "Could not find the name."
+        redirect_to users_path
+      end
     else
       @user = User.find(params[:id])
     end
