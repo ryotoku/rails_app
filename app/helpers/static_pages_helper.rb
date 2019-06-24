@@ -29,10 +29,9 @@ module StaticPagesHelper
       opt :order, 'order', :type => String, :default => 'date'
       opt :regionCode, 'region', :type => String, :default => 'JP'
     end
-
-#    for array_index in 0..arg_array_save.length - 1 do
-#      ARGV.push(arg_array_save[array_index])
-#    end
+    for array_index in 0..arg_array_save.length - 1 do
+      ARGV.push(arg_array_save[array_index])
+    end
 
     client, youtube = get_service
 
