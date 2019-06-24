@@ -6,8 +6,8 @@ require 'optimist'
 module StaticPagesHelper
 
   DEVELOPER_KEY = Settings.api_key
-  YOUTUBE_API_SERVICE_NAME = Settings.api_name
-  YOUTUBE_API_VERSION = Settings.api_ver
+  YOUTUBE_API_SERVICE_NAME = Settings.api_name.chomp
+  YOUTUBE_API_VERSION = Settings.api_ver.chomp
 
   def get_service
     client = Google::APIClient.new(
