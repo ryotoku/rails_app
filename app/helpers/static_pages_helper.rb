@@ -13,7 +13,7 @@ module StaticPagesHelper
       key: DEVELOPER_KEY,
       authorization: nil,
       application_name: $PROGRAM_NAME,
-      application_version: Settings.app_ver
+      application_version: '1.0.0'
     )
     youtube = client.discovered_api(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION)
 
