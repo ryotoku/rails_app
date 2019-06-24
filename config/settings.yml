@@ -4,8 +4,8 @@ bd_url: "https://www.billiards-days.com/"
 
 # google API info
 api_key: "AIzaSyCy68WmStr_0wjiWYR_WZ1Hrk6eOVPICbU"
-api_name: youtube
-api_ver: v3
-authori: nil
+api_name: "youtube"
+api_ver: "v3"
+authori: "nil"
 app_ver: "1.0.0"
 jump_url: "https://www.youtube.com/watch?v="
