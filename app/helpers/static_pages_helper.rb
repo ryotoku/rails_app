@@ -25,7 +25,7 @@ module StaticPagesHelper
     arg_array_save = []
     arg_array_save = ARGV.shift(4)
     opts = Optimist::options do
-      opt :Srch, 'Search term', :type => String, :default => "ビリヤード"
+      opt :Srch, 'Search term', :type => String, :default => "billiards"
       opt :max_results, 'Max results', :type => :int, :default => 5
       opt :order, 'order', :type => String, :default => 'date'
       opt :regionCode, 'region', :type => String, :default => 'JP'
