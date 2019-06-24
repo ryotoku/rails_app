@@ -1,4 +1,5 @@
 require 'rubygems'
+gem 'google-api-client', '>0.7'
 require 'google/api_client'
 require 'optimist'
 
