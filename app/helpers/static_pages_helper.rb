@@ -1,13 +1,12 @@
 require 'rubygems'
-gem 'google-api-client', '>0.7'
 require 'google/api_client'
 require 'optimist'
 
 module StaticPagesHelper
 
   DEVELOPER_KEY = Settings.api_key
-  YOUTUBE_API_SERVICE_NAME = Settings.api_name.chomp
-  YOUTUBE_API_VERSION = Settings.api_ver.chomp
+  YOUTUBE_API_SERVICE_NAME = 'youtube'
+  YOUTUBE_API_VERSION = 'v3'
 
   def get_service
     client = Google::APIClient.new(
