@@ -31,7 +31,7 @@ gem 'kaminari'
 gem 'kaminari-bootstrap'
 gem 'bootstrap-sass',          '3.3.7'
 # google API
-gem 'google-api-client',       '<0.9'
+gem 'google-api-client',       '~> 0.11.1'
 gem 'config'
 #gem 'trollop'
 gem 'optimist',                '~> 3.0'
